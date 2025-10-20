@@ -4,10 +4,8 @@ from backend.api.journeys_router import router as journeys_router
 
 app = FastAPI(title="Flight Events API")
 
-# Router de journeys
 app.include_router(journeys_router, prefix="/journeys")
 
-# Middleware CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
