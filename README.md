@@ -15,6 +15,7 @@ Se implementa con **Python** y **FastAPI**, y se puede probar desde navegador, P
 - Python 3.10 o superior
 - pip
 - (Opcional) virtualenv
+- Node.js y npm  
 
 ---
 
@@ -22,7 +23,6 @@ Se implementa con **Python** y **FastAPI**, y se puede probar desde navegador, P
 
 ### 1️1 Clonar el repositorio
 
-```bash
 git clone https://github.com/IsabelFeraudo/journey-finder.git
 cd journey-finder
 
@@ -61,5 +61,27 @@ pytest
 *Esto ejecuta todos los tests de test_journey_service.py.
 
 --
+5️ Levantar el frontend (React App)
+5.1 Entrar a la carpeta del frontend
+cd frontend
 
-```
+5.2 Instalar dependencias de Node.js
+npm install
+
+5.3 Correr la aplicación React
+npm start
+
+http://localhost:3000
+
+
+6.Usar la aplicación
+
+1. Ingresar código de aeropuerto de origen (3 letras).
+2. Ingresar código de aeropuerto de destino (3 letras).
+3. Seleccionar la fecha de partida.
+4. Presionar "Buscar viajes" para ver los resultados en la tabla, que incluyen:
+Conexiones
+Ruta (from_ → to)
+Números de vuelo
+Horarios de salida y llegada
+
