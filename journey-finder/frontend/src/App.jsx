@@ -1,21 +1,19 @@
 /**
- * Journey Finder App - Main Application Component
+ * Journey Finder App - Componente Principal de la Aplicación
  *
- * This React component serves as the main application interface for searching and displaying
- * journey/travel information. It provides a user-friendly interface with the following features:
+ * Este componente de React sirve como la interfaz principal de la aplicación para buscar y mostrar
+ * información de viajes/journeys. Proporciona una interfaz  con las siguientes funcionalidades:
  *
- * - Search Form: Allows users to input search parameters for finding journeys
- * - Results Display: Shows search results in a table format with loading states
- * - API Integration: Handles communication with the backend service to fetch journey data
- * - Responsive Design: Uses React Bootstrap for mobile-friendly layout
+ * - Search Form: Permite a los usuarios ingresar los parámetros de búsqueda para encontrar journeys
+ * - Results Display: Muestra los resultados de la búsqueda en formato de tabla
+ * - API Integration: Maneja la comunicación con el servicio backend para obtener los datos de journeys
+ * - Utiliza React Bootstrap para un diseño adaptable
  *
- * The component manages two main pieces of state:
- * - results: Array of journey data returned from the API
- * - loading: Boolean flag to show loading indicator during API calls
- *
- * When a search is performed, it calls the searchJourneys API service and updates the
- * results state with the returned data, handling errors.
+ * El componente maneja dos estados principales:
+ * - results: Array de datos de journeys devueltos por la API
+ * - loading: Booleano para mostrar el indicador de carga durante las llamadas a la API
  */
+
 import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import SearchForm from "./components/SearchForm";

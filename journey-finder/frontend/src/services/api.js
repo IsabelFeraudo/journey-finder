@@ -1,10 +1,10 @@
 /**
- * API Service - Journey Search API Integration
- *
- * Handles communication with the backend API for journey search functionality.
- * Provides a function to search for journeys by sending GET requests to the
- * backend service with search parameters (origin, destination, date).
+ * Servicio API - Integración con la API de Búsqueda de Viajes
+ * Maneja la comunicación con el backend para la funcionalidad de búsqueda de viajes
+ * Proporciona una función para buscar viajes enviando solicitudes GET al
+ * servicio backend con los parámetros de búsqueda
  */
+
 import axios from "axios";
 
 const API_URL = "http://localhost:8000/journeys/search";
