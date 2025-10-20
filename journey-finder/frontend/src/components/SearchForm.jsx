@@ -1,13 +1,11 @@
 /**
- * SearchForm Component - Journey Search Interface
- *
- * A form component that allows users to search for journeys by entering:
- * - Origin city name (full name)
- * - Destination city name (full name)
- * - Departure date
- *
- * When submitted, it calls the onSearch prop with the form data.
+ * Componente SearchForm - Interfaz de Búsqueda de Viajes
+ * Componente de formulario que permite a los usuarios buscar viajes ingresando:
+ * - Ciudad de origen (codigo de 3 letras)
+ * - Cciudad de destino (codigo de 3 letras)
+ * - Fecha de salida
  */
+
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
