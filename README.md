@@ -43,8 +43,11 @@ journey-finder>
 uvicorn backend.main:app --reload --port 8000
 uvicorn backend.api.mock_flights_router:app --reload --port 8001
 
-Esto levantará la API en:
+Esto levantará las APIs en:
 http://127.0.0.1:8000
+y
+http://127.0.0.1:8001
+respectivamente
 
 ### 5️ Probar la API
 
