@@ -18,7 +18,7 @@ router = APIRouter(tags=["Journeys"])
 
 # ⚙️ CONFIG: URL base de la API mock local (la que definiste en mock_flights_router)
 # Nota: No agregues /flight-events al final, ya que el cliente se encarga de eso.
-FLIGHT_API_BASE_URL = "http://127.0.0.1:8000"
+FLIGHT_API_BASE_URL = "http://127.0.0.1:8001"
 
 
 async def get_journey_service() -> JourneyService:
