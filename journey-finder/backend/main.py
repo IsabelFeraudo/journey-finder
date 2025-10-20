@@ -10,10 +10,13 @@ Patrones/principios aplicados:
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.api.journeys_router import router as journeys_router
+from backend.api.mock_flights_router import router as mock_flights_router
 
-app = FastAPI(title="Toy Flight Events API")
+app = FastAPI(title="Flight Events API")
 # Registramos el router con el prefijo /journeys
 app.include_router(journeys_router, prefix="/journeys")
+app.include_router(mock_flights_router, prefix="/mock-flights")
+app.include_router(flights_router, prefix="")
 #Aca permitimos llamadas desde cualquier origen como por ej. un frontend, Postman o algun navegador
 app.add_middleware(
     CORSMiddleware,

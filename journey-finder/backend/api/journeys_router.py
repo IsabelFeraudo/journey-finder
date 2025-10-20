@@ -13,36 +13,43 @@ from ..models.journey import Journey
 from ..repositories.flight_api_client import FlightApiClient
 from ..services.journey_service import JourneyService
 
-router = APIRouter()
+router = APIRouter(tags=["Journeys"])
 
-# CONFIG: URL base de la API de eventos (sin /flight-events al final)
+
+# ⚙️ CONFIG: URL base de la API mock local (la que definiste en mock_flights_router)
+# Nota: No agregues /flight-events al final, ya que el cliente se encarga de eso.
 FLIGHT_API_BASE_URL = "http://127.0.0.1:8000"
 
-async def get_journey_service():
+
+async def get_journey_service() -> JourneyService:
     """
     Factory que crea el JourneyService con la implementación concreta del cliente.
-    En producción podrías inyectar una implementación distinta.
+    En producción podrías inyectar una implementación distinta (por ejemplo, hacia una API real).
     """
     client = FlightApiClient(base_url=FLIGHT_API_BASE_URL)
     service = JourneyService(flight_api_client=client)
     return service
 
+
 @router.get("/search", response_model=List[Journey])
 async def search_journeys(
-    date: str = Query(..., regex=r"^\d{4}-\d{2}-\d{2}$"),
-    from_: str = Query(..., alias="from", min_length=3, max_length=3),
-    to: str = Query(..., min_length=3, max_length=3),
+    date: str = Query(..., regex=r"^\d{4}-\d{2}-\d{2}$", description="Fecha de salida en formato YYYY-MM-DD"),
+    from_: str = Query(..., alias="from", min_length=3, max_length=3, description="Código IATA del aeropuerto de origen"),
+    to: str = Query(..., min_length=3, max_length=3, description="Código IATA del aeropuerto de destino"),
     service: JourneyService = Depends(get_journey_service)
 ):
     """
     Endpoint GET /journeys/search?date=YYYY-MM-DD&from=BUE&to=MAD
+
+    Este endpoint:
     - Valida inputs vía Query parameters.
-    - Llama al JourneyService.search y retorna la lista de journeys.
-    - Ahora soporta vuelos directos y con 1 conexión, usando fetch_all_events.
+    - Llama al JourneyService.search(), que internamente consume el endpoint local `/flight-events`.
+    - Devuelve una lista de journeys que coincidan con los filtros.
     """
     try:
+        # El servicio se encarga de llamar a /flight-events y filtrar los resultados.
         results = await service.search(date=date, from_code=from_, to_code=to)
         return results
     except Exception as e:
-        # En producción mejorar el manejo de errores y logging
-        raise HTTPException(status_code=500, detail=str(e))
+        # En producción podrías registrar el error o usar un middleware global para manejo de excepciones.
+        raise HTTPException(status_code=500, detail=f"Error al buscar viajes: {str(e)}")
