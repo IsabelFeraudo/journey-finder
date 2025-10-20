@@ -30,9 +30,15 @@ function App() {
     setLoading(true);
     try {
       const response = await searchJourneys(params);
+      if (response.data.length === 0) {
+        alert("No se encontraron viajes que coincidan con su búsqueda");
+      }
       setResults(response.data);
     } catch (error) {
       console.error("Error fetching journeys:", error);
+      alert(
+        "Ocurrió un error al buscar los viajes. Intente de nuevo más tarde."
+      );
     } finally {
       setLoading(false);
     }
