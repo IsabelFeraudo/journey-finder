@@ -90,5 +90,7 @@ http://localhost:3000
 
 ### Documentación
 
-Podrá encontrarse un documento con casos de prueba relativos a los datos mock de la API mock_flights_router.
-Ubicación: \journey-finder\documentation\Journey Finder - Casos de Prueba.pdf
+- Documentación interactiva (Swagger): http://127.0.0.1:8000/docs
+  \*OpenApi JSON: http://127.0.0.1:8000/openapi.json
+- Podrá encontrarse un documento con casos de prueba relativos a los datos mock de la API mock_flights_router.
+  Ubicación: \journey-finder\documentation\Journey Finder - Casos de Prueba.pdf

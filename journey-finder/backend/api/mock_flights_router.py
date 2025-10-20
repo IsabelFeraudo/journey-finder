@@ -30,7 +30,23 @@ flight_events = [
      "departure_datetime": "2024-10-19T05:00:00Z", "arrival_datetime": "2024-10-20T06:00:00Z"},
     {"flight_number": "IB9012", "departure_city": "MAD", "arrival_city": "NYC",
      "departure_datetime": "2024-10-20T06:30:00Z", "arrival_datetime": "2024-10-20T12:30:00Z"},
+
+    {"flight_number": "VD1001", "departure_city": "MAD", "arrival_city": "NYC",
+     "departure_datetime": "2024-10-20T23:00:00Z", "arrival_datetime": "2024-10-21T01:00:00Z"},
+    
+
+    {"flight_number": "VC2001", "departure_city": "MAD", "arrival_city": "BUE",
+     "departure_datetime": "2024-10-20T21:00:00Z", "arrival_datetime": "2024-10-20T22:00:00Z"},
+    {"flight_number": "VC2002", "departure_city": "BUE", "arrival_city": "NYC",
+     "departure_datetime": "2024-10-20T23:00:00Z", "arrival_datetime": "2024-10-21T01:00:00Z"},
+    
+
+    {"flight_number": "VC3001", "departure_city": "MAD", "arrival_city": "BUE",
+     "departure_datetime": "2024-10-20T22:00:00Z", "arrival_datetime": "2024-10-20T23:00:00Z"},
+    {"flight_number": "VC3002", "departure_city": "BUE", "arrival_city": "NYC",
+     "departure_datetime": "2024-10-21T01:00:00Z", "arrival_datetime": "2024-10-21T02:00:00Z"},
 ]
+
 
 
 @app.get("/flight-events")
