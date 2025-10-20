@@ -1,8 +1,6 @@
 # Journey Finder 🚀
 
-## Español 🇪🇸
-
-**Journey Finder** es un proyecto de ejemplo de una API para buscar vuelos y viajes combinando uno o más eventos de vuelo. La idea es encontrar rutas desde una ciudad de origen a una ciudad de destino en una fecha determinada, respetando algunas reglas:
+Proyecto de ejemplo de una API para buscar vuelos y viajes combinando uno o más eventos de vuelo. La idea es encontrar rutas desde una ciudad de origen a una ciudad de destino en una fecha determinada, respetando algunas reglas:
 
 - Máximo 2 vuelos por viaje.
 - Duración total del viaje ≤ 24 horas.
