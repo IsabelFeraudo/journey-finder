@@ -1,28 +1,39 @@
-# Journey Finder 🚀
+🎯 Journey Finder: RESTful API
 
-Proyecto de ejemplo de una API para buscar vuelos y viajes combinando uno o más eventos de vuelo. La idea es encontrar rutas desde una ciudad de origen a una ciudad de destino en una fecha determinada, respetando algunas reglas:
+This project serves as a backend engineering showcase focused on RESTful API design and service architecture.
 
-- Máximo 2 vuelos por viaje.
-- Duración total del viaje ≤ 24 horas.
-- Tiempo de conexión ≤ 4 horas.
+It demonstrates:
+* RESTful endpoint design following HTTP conventions
+* Clean separation of concerns (routing, services, models)
+* Business rule implementation and validation logic
+* API documentation with OpenAPI / Swagger
+* Automated testing with pytest
+* Integration between backend services and frontend client
+* Mock service architecture for external data sources
+* Error handling and response standardization
+* The project simulates a real-world backend system that processes domain rules, aggregates data, and exposes structured responses through a public API.
 
-Se implementa con **Python** y **FastAPI**, y se puede probar desde navegador, Postman o mediante tests automáticos con `pytest`.
+🧰 Tech Stack
 
-## Requisitos
+* Python 3.10+
+* FastAPI
+* Uvicorn
+* Pytest
+* React (frontend demo)
+* Node.js
 
-- Python 3.10 o superior
-- pip
-- (Opcional) virtualenv
-- Node.js y npm
+📦 Requirements
 
-## Clonar y correr el proyecto
+* Python 3.10 or higher
+* pip
+* virtualenv
+* Node.js and npm
 
-### 1 Clonar el repositorio
-
+▶️ Clone and Run the Project
+1️⃣ Clone the repository
 git clone https://github.com/IsabelFeraudo/journey-finder.git
 cd journey-finder
-
-### 2 Crear un entorno virtual
+2️⃣ Create a virtual environment
 
 Linux / Mac:
 
@@ -30,70 +41,56 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 Windows (PowerShell):
+
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-
-### 3️ Instalar dependencias
-
+3️⃣ Install dependencies
 pip install -r requirements.txt
-
-### 4️ Correr las APIs
-
-journey-finder>
+4️⃣ Run the APIs
 uvicorn backend.main:app --reload --port 8000
 uvicorn backend.api.mock_flights_router:app --reload --port 8001
 
-Esto levantará las APIs en:
-http://127.0.0.1:8000
-y
-http://127.0.0.1:8001
-respectivamente
+APIs will be available at:
+* http://127.0.0.1:8000
+* http://127.0.0.1:8001
 
-### 5️ Probar la API
-
-Desde el navegador:
-
-### Buscar vuelos:
-
+🔎 Test the API
+Search journeys
 http://127.0.0.1:8000/journeys/search?date=2024-10-19&from=BUE&to=NYC
-
-### Documentación interactiva OpenAPI:http://127.0.0.1:8000/docs
-
-### Desde tests automáticos:
-
+Interactive API docs (OpenAPI / Swagger)
+http://127.0.0.1:8000/docs
+Run automated tests
 pytest
-\*Esto ejecuta todos los tests de test_journey_service.py.
 
-### 6 Levantar el frontend (React App)
+This executes all tests in test_journey_service.py.
 
-### 6.1 Entrar a la carpeta del frontend
-
+💻 Frontend Demo (React)
+1️⃣ Go to frontend folder
 cd frontend
-
-### 6.2 Instalar dependencias de Node.js
-
+2️⃣ Install dependencies
 npm install
-
-### 6.3 Correr la aplicación React
-
+3️⃣ Run the app
 npm start
 
+Open in browser:
+
 http://localhost:3000
+🧭 How to Use the Application
 
-### 7.Usar la aplicación
+* Enter origin airport code (3 letters)
+* Enter destination airport code (3 letters)
+* Select departure date
+* Click Search journeys
+* Results include:
+* Connections
+* Route (from → to)
+* Flight numbers
+* Departure and arrival times
 
-1. Ingresar código de aeropuerto de origen (3 letras).
-2. Ingresar código de aeropuerto de destino (3 letras).
-3. Seleccionar la fecha de partida.
-4. Presionar "Buscar viajes" para ver los resultados en la tabla, que incluyen:
-   Conexiones
-   Ruta (from\_ → to)
-   Números de vuelo
-   Horarios de salida y llegada
+📄 Documentation
 
-### Documentación
+* Swagger UI: http://127.0.0.1:8000/docs
+* OpenAPI JSON: http://127.0.0.1:8000/openapi.json
 
-- Documentación interactiva (Swagger): http://127.0.0.1:8000/docs
-  \*OpenApi JSON: http://127.0.0.1:8000/openapi.json
-- Podrá encontrarse un documento con casos de prueba relativos a los datos mock de la API mock_flights_router.
-  Ubicación: \journey-finder\documentation\Journey Finder - Casos de Prueba.pdf
+Test case documentation for mock data:
+* documentation/Journey Finder - Test Cases.pdf
